@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.example.accessingdatamysql.entity.*;
 
-public interface SongRepository extends CrudRepository<Song, Integer>{
+public interface PlaylistRepository extends CrudRepository<Playlist, Integer> {
 
 }

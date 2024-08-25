@@ -1,8 +1,12 @@
-package com.example.accessingdatamysql;
+package com.example.accessingdatamysql.entity;
 
+import java.io.File;
 import java.lang.annotation.Inherited;
+import jakarta.persistence.Entity;
 import java.time.Duration;
-
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 @Entity
 public class Song{
     @Id
@@ -41,7 +45,14 @@ public class Song{
     public void setSongArtist(String name){
         this.artist = name;
     }
-    public void setFile(File file1){
-        this.file = file;
+    public String setFile(File file1){
+        String xyz = "";
+        try{
+            this.file = file1;
+            xyz = "This file " + file1.getName() + " has been set";
+        }catch(Exception e){
+            xyz = "This file " + file1.getName() + " is corrupted";
+        }
+        return xyz;
     }
 }
